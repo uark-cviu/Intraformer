@@ -1,4 +1,8 @@
-# Build knns 
+# Clusformer: A Transformer based Clustering Approach to Unsupervised Large-scale Face and Visual Landmark Recognition
+
+This repo is an official implementations of [Clusformer](https://openaccess.thecvf.com/content/CVPR2021/papers/Nguyen_Clusformer_A_Transformer_Based_Clustering_Approach_to_Unsupervised_Large-Scale_Face_CVPR_2021_paper.pdf)
+
+## Build knns 
 ```
 for fold in 1 3 5 7 9; do
     feature_path=/home/data/clustering/data/features/part${fold}_test.bin
@@ -19,8 +23,20 @@ for fold in 1 3 5 7 9; do
 done
 ```
 
-# Train clusformer 
+## Train clusformer 
 ```
 python -u -m torch.distributed.launch --nproc_per_node=4 main.py    --output_dir ./logs/baseline/ \
                                                                     --batch_size_per_gpu 512
+```
+
+## Citation
+If you find this repository useful, please consider giving a star :star: and citation
+```
+@INPROCEEDINGS{nguyen2021clusformer,
+  author={Nguyen, Xuan-Bac and Bui, Duc Toan and Duong, Chi Nhan and Bui, Tien D. and Luu, Khoa},
+  booktitle={2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Clusformer: A Transformer based Clustering Approach to Unsupervised Large-scale Face and Visual Landmark Recognition}, 
+  year={2021},
+  pages={10842-10851},
+}
 ```
